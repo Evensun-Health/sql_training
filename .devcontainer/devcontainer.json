@@ -1,0 +1,28 @@
+{
+  "name": "SQL Training Workspace",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "mtxr.sqltools",
+        "mtxr.sqltools-driver-pg"
+      ],
+      "settings": {
+        "sqltools.connections": [
+          {
+            "name": "Shared Supabase (from .env)",
+            "driver": "CockroachDB",
+            "server": "${env:DB_HOST}",
+            "port": "${env:DB_PORT}",
+            "database": "${env:DB_NAME}",
+            "username": "${env:DB_USER}",
+            "password": "${env:DB_PASSWORD}",
+            "previewLimit": 50,
+            "askForPassword": false
+          }
+        ]
+      }
+    }
+  }
+}
+

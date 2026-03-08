@@ -1,0 +1,16 @@
+{
+  "sqltools.connections": [
+    {
+      "name": "Shared Supabase (from .env)",
+      "driver": "CockroachDB",
+      "server": "${env:DB_HOST}",
+      "port": "${env:DB_PORT}",
+      "database": "${env:DB_NAME}",
+      "username": "${env:DB_USER}",
+      "password": "${env:DB_PASSWORD}",
+      "previewLimit": 50,
+      "askForPassword": false
+    }
+  ]
+}
+
