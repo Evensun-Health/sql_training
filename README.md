@@ -10,6 +10,13 @@ You can use either setup path below. Both are fully supported.
 - A preconfigured SQLTools connection named `Shared Supabase (Pooler)`
 - A sample query in `queries/01_verify_connection.sql`
 
+## Before You Start (GitHub access)
+
+1. Sign in to GitHub (or create an account).
+2. Open this class repository.
+3. If you want to save your own work, click **Fork** to create your own copy.
+4. Open your fork and continue with Option A or Option B below.
+
 ## Option A: GitHub Codespaces (no install required)
 
 1. Open this repository on GitHub.
