@@ -41,7 +41,7 @@ If you see database/user/time results, your connection is working.
 ## Option B: Local VS Code
 
 1. Clone this repository.
-2. Open it in VS Code.
+2. Open it in VS Code. NOTE: if you have existing sql connectors you may want to create a separate profile for this work to avoid conflicts. 
 3. When VS Code shows extension recommendations, click **Install All**.
 4. If no prompt appears, install these manually:
    - `SQLTools` (`mtxr.sqltools`)
