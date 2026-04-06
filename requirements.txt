@@ -1,4 +1,4 @@
 sqlalchemy
-psycopg
+psycopg[binary]
 pandas
 ipykernel
