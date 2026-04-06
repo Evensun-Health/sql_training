@@ -1,39 +1,36 @@
 # %%
 # setup
 
+import pandas as pd
+import matplotlib.pyplot as plt
 
 
 from config import CONNECTION_PASSWORD, DB_HOST, DB_NAME, DB_PORT, DB_USER
 from connection import getDbEngine, loadSqlFromFile, renderSqlTemplate, runSqlToDf
 
-# import pandas as pd
-import matplotlib.pyplot as plt
 
 # %%
-
 # set connection vars
-host = DB_HOST
-port = DB_PORT
-database = DB_NAME
-username = DB_USER
-password = CONNECTION_PASSWORD
-
 engine = getDbEngine(
-  host=host,
-  database=database,
-  username=username,
-  password=password,
-  port=port,
+  host=DB_HOST,
+  database=DB_NAME,
+  username=DB_USER,
+  password=CONNECTION_PASSWORD,
+  port=DB_PORT,
 )
 
 
 # %%
 # load and render sql template
-sqlPath = "./sql_templates/exampleTemplate"
+sqlPath = "./sql_templates/t0A_filtered"
 
 templateVars = {
   "schema_name": "public",
   "table_name": "t0A",
+}
+
+queryParams = {
+  "market_coverage": "Individual",
 }
 
 sqlTemplate = loadSqlFromFile(sqlPath)
@@ -44,7 +41,7 @@ print(sqlFinal)
 
 # %%
 # run query
-df = runSqlToDf(engine, sqlFinal)
+df = runSqlToDf(engine, sqlFinal, params=queryParams)
 
 df
 

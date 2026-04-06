@@ -1,0 +1,4 @@
+SELECT *
+FROM "{{_schema_name_}}"."{{_table_name_}}"
+WHERE market_coverage = :market_coverage
+;

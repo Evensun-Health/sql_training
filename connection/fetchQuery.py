@@ -2,6 +2,7 @@ from pathlib import Path
 import re
 
 import pandas as pd
+from sqlalchemy import text
 from sqlalchemy.engine import Engine
 
 
@@ -35,5 +36,5 @@ def renderSqlTemplate(sqlText: str, templateVars: dict[str, str] | None = None) 
 
 def runSqlToDf(engine: Engine, sqlText: str, params: dict | None = None) -> pd.DataFrame:
   with engine.connect() as conn:
-    df = pd.read_sql_query(sqlText, conn, params=params)
+    df = pd.read_sql_query(text(sqlText), conn, params=params)
   return df

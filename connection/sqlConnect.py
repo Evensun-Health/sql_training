@@ -11,7 +11,7 @@ def getDbEngine(
   sslmode: str = "require",
 ) -> Engine:
   connStr = (
-    f"postgresql+psycopg://{username}:{password}@{host}:{port}/{database}"
+    f"postgresql+psycopg2://{username}:{password}@{host}:{port}/{database}"
     f"?sslmode={sslmode}"
   )
   return create_engine(connStr)
