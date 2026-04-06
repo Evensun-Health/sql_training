@@ -4,6 +4,8 @@
   "customizations": {
     "vscode": {
       "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
         "mtxr.sqltools",
         "mtxr.sqltools-driver-pg"
       ],
@@ -23,6 +25,6 @@
         ]
       }
     }
-  }
+  },
+  "postCreateCommand": "python3 -m pip install -r requirements.txt"
 }
-
