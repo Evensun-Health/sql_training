@@ -8,7 +8,7 @@
 -- -------------------------------------------------------------------------
 SELECT *
 FROM "public"."t0A"
-LIMIT 20;
+-- LIMIT 20;
 
 -- in the first week we filtered out small group so all exploration should be on
 SELECT *
@@ -91,15 +91,18 @@ SELECT DISTINCT csr_variation_type FROM "public"."t0A" WHERE market_coverage = '
 -- example try
 SELECT
      business_year
-    ,plan_id
+    ,
+    plan_id
     ,age
     ,tobacco
-    ,COUNT(*) AS row_count
+    ,
+    COUNT(*) AS row_count
 FROM "public"."t0A"
 WHERE market_coverage = 'Individual'
 GROUP BY 
    business_year
-  ,plan_id
+  ,
+plan_id
   ,age
   ,tobacco
 ORDER BY row_count DESC -- USE DESC to ensure that highest counts are at the top
