@@ -25,6 +25,8 @@ engine = getDbEngine(
 sqlTemplate = loadSqlFromFile("./sql_templates/t0A_filtered")
 sqlFinal = renderSqlTemplate(sqlTemplate, templateVars={"schema_name": "public", "table_name": "t0A"})
 
+
+# breaks the extendablility
 issuer_names = {
   "69461": "United",
   "46944": "bcbs of AL",
@@ -41,7 +43,7 @@ with engine.connect() as conn:
 
 df["issuer_name"] = df["issuer_id"].map(issuer_names)
 
-df.head()
+df.head(20)
 
 
 # %%
@@ -77,6 +79,7 @@ df["is_slcsp"] = (
 
 df[["rating_area_id", "metal_level", "individual_rate", "is_min", "is_slcsp"]].head(20)
 
+# %%
 
 # %%
 # 2. Pivot: min individual rate by rating area × metal level
@@ -103,7 +106,7 @@ pivot_sorted = (
 
 fig, ax = plt.subplots(figsize=(7, 8))
 
-im = ax.imshow(pivot_sorted.values, aspect="auto", cmap="RdYlGn_r", alpha=0.6)
+im = ax.imshow(pivot_sorted.values, aspect="auto", cmap="copper_r", alpha=1)
 
 ax.set_xticks(range(len(pivot_sorted.columns)))
 ax.set_xticklabels(pivot_sorted.columns)
@@ -199,8 +202,8 @@ metal_x = {m: i for i, m in enumerate(metal_order)}
 rating_areas = sorted(df["rating_area_id"].unique(), key=lambda x: int(x.split(" ")[-1]))
 
 for area in rating_areas:
-  if area != "Rating Area 10":
-    continue 
+  # if area != "Rating Area 10":
+  #   continue 
   area_df = df[df["rating_area_id"] == area]
 
   fig, ax = plt.subplots(figsize=(9, 5))
